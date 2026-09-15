@@ -1,0 +1,1427 @@
+/* ==========================================================================
+   RINCÓN FIT - LANDING PAGE STYLES (VERCEL READY)
+   ========================================================================== */
+
+:root {
+  --primary: #0d3b44;
+  --primary-hover: #07242a;
+  --gold: #D4AF37;
+  --gold-light: #F5C400;
+  --bg-dark: #121414;
+  --bg-light: #f8f9fa;
+  --text-dark: #121414;
+  --text-muted: #5f6368;
+  --text-light: #ffffff;
+  --border-light: rgba(0, 0, 0, 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--text-dark);
+  background-color: #ffffff;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   HEADER & NAVBAR (TRANSPARENTE AL INICIO, NEGRO AL SCROLLEAR)
+   ========================================================================== */
+
+.rf-top-promo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(90deg, #f5c400 0%, #f8db6b 100%);
+  color: #0d3b44;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px 7px;
+  z-index: 120;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+  line-height: 1;
+}
+
+.rf-top-promo .material-symbols-outlined {
+  font-size: 18px;
+}
+
+.rf-header {
+  position: fixed;
+  top: 34px;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: transparent;
+  border-bottom: none;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Estado al scrollear (Negro fijo estático) */
+.rf-header.rf-header-scrolled {
+  background-color: #121414 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6) !important;
+}
+
+.rf-nav-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rf-logo {
+  font-family: 'Sora', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: #ffffff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+.rf-logo-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--gold-light);
+  display: inline-block;
+  box-shadow: 0 0 10px rgba(245, 196, 0, 0.6);
+}
+
+.rf-nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.rf-nav-menu a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+.rf-nav-menu a:hover {
+  color: var(--gold-light);
+}
+
+.rf-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Botón Carrito */
+.rf-cart-trigger {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.8));
+}
+
+.rf-cart-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background-color: var(--gold-light);
+  color: #111;
+  font-size: 10px;
+  font-weight: 800;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rf-nav-cta {
+  text-decoration: none;
+  background-color: var(--gold-light);
+  color: #111111;
+  font-family: 'Sora', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 10px 20px;
+  border-radius: 50px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.rf-nav-cta:hover {
+  background-color: #ffd52a;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   HERO SECTION (MÁXIMA NITIDEZ DE IMAGEN & SIN NINGUNA DEFORMACIÓN)
+   ========================================================================== */
+
+.rf-hero {
+  position: relative;
+  background-image: linear-gradient(90deg, rgba(12, 15, 15, 0.95) 0%, rgba(12, 15, 15, 0.82) 35%, rgba(12, 15, 15, 0.3) 65%, rgba(12, 15, 15, 0) 100%), url('hero-bg.webp');
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-color: #0c0f0f;
+  padding: 188px 24px 90px 24px;
+  color: #ffffff;
+  overflow: hidden;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+}
+
+.rf-hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.rf-hero-content {
+  max-width: 600px;
+  width: 100%;
+}
+
+.rf-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+}
+
+.rf-eyebrow-line {
+  width: 48px;
+  height: 2px;
+  background-color: var(--gold-light);
+  display: block;
+  box-shadow: 0 0 10px rgba(245,196,0,0.5);
+}
+
+.rf-title {
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  margin: 0;
+  text-shadow: 0 3px 14px rgba(0,0,0,0.9);
+}
+
+.rf-title .highlight {
+  color: var(--gold-light);
+  text-shadow: 0 3px 14px rgba(0,0,0,0.9), 0 0 25px rgba(245,196,0,0.4);
+}
+
+.rf-description {
+  margin-top: 24px;
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.95);
+  max-width: 520px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.95);
+}
+
+.rf-hero-buttons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 36px;
+  flex-wrap: wrap;
+}
+
+.rf-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 28px;
+  border-radius: 50px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.rf-btn-primary {
+  background-color: var(--gold-light);
+  color: #111;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+}
+
+.rf-btn-primary:hover {
+  background-color: #ffd52a;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+}
+
+.rf-btn-secondary {
+  border: 1px solid rgba(255,255,255,0.7);
+  background: rgba(0,0,0,0.35);
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+.rf-btn-secondary:hover {
+  background: rgba(255,255,255,0.25);
+  border-color: #ffffff;
+  transform: translateY(-3px);
+}
+
+.rf-arrow {
+  transition: transform 0.3s ease;
+}
+
+.rf-btn:hover .rf-arrow {
+  transform: translateX(4px);
+}
+
+/* Beneficios */
+.rf-benefits {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 40px;
+}
+
+.rf-benefit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.rf-benefit-icon {
+  color: var(--gold-light);
+  width: 28px;
+  height: 28px;
+  margin-bottom: 6px;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.95));
+}
+
+.rf-benefit-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.rf-benefit-title {
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.95);
+}
+
+/* Espacio reservado para permitir que lucir la parte derecha del banner de fondo (bote y polvo) */
+.rf-hero-space {
+  min-height: 350px;
+  width: 100%;
+}
+
+/* ==========================================================================
+   SECCIONES Y TIENDA DE PRODUCTOS
+   ========================================================================== */
+
+.rf-section {
+  padding: 80px 24px;
+}
+
+.rf-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.rf-section-header {
+  margin-bottom: 48px;
+}
+
+.rf-section-header.text-center {
+  text-align: center;
+}
+
+.rf-section-tag {
+  font-family: 'Sora', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.rf-section-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0 0 12px 0;
+  line-height: 1.2;
+}
+
+.rf-section-subtitle {
+  font-size: 16px;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Grid de Productos */
+.rf-products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.rf-product-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rf-product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.rf-product-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background-color: var(--gold-light);
+  color: #111;
+  font-family: 'Sora', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 50px;
+  z-index: 2;
+  text-transform: uppercase;
+}
+
+.rf-product-badge.rf-badge-upcoming {
+  background-color: #5f6368;
+  color: #ffffff;
+}
+
+.rf-product-img-box {
+  height: 240px;
+  background-color: #f1f3f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.rf-product-img-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.rf-product-card:hover .rf-product-img-box img {
+  transform: scale(1.05);
+}
+
+.rf-product-info {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.rf-product-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0 0 8px 0;
+}
+
+.rf-product-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0 0 20px 0;
+  flex-grow: 1;
+}
+
+.rf-product-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.rf-product-price {
+  font-family: 'Sora', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.rf-add-cart-btn {
+  background-color: var(--primary);
+  color: #ffffff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-family: 'Sora', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.rf-add-cart-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+.rf-add-cart-btn.rf-btn-disabled {
+  background-color: #e0e0e0;
+  color: #757575;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.rf-add-cart-btn.rf-btn-disabled:hover {
+  background-color: #e0e0e0;
+}
+
+.rf-add-cart-btn .material-symbols-outlined {
+  font-size: 18px;
+}
+
+/* ==========================================================================
+   SECCIÓN PROCESO DE SELECCIÓN
+   ========================================================================== */
+
+.rf-proceso-section {
+  position: relative;
+  background-color: #0d3b44;
+  color: #ffffff;
+  padding: 80px 24px;
+  overflow: hidden;
+}
+
+.rf-proceso-bg-accent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 33.333%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.05);
+  transform: skewX(12deg);
+  transform-origin: bottom;
+  pointer-events: none;
+}
+
+.rf-proceso-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.rf-proceso-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.rf-proceso-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 16px 0;
+}
+
+.rf-proceso-subtitle {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.rf-proceso-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  position: relative;
+}
+
+.rf-proceso-grid::before {
+  content: '';
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+  z-index: 0;
+}
+
+.rf-proceso-step {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.rf-proceso-badge {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.rf-proceso-step:hover .rf-proceso-badge {
+  background-color: #D4AF37;
+  border-color: #D4AF37;
+}
+
+.rf-proceso-number {
+  font-family: 'Sora', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 0.3s ease;
+}
+
+.rf-proceso-step:hover .rf-proceso-number {
+  color: #ffffff;
+}
+
+.rf-proceso-step-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+}
+
+.rf-proceso-step-desc {
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+/* ==========================================================================
+   SECCIÓN SOBRE NOSOTROS / NUESTRA HISTORIA
+   ========================================================================== */
+
+.rf-historia-section {
+  position: relative;
+  background-color: #ffffff;
+  padding: 80px 24px;
+  overflow: hidden;
+}
+
+.rf-historia-watermark {
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 200px;
+  font-weight: 800;
+  color: #F0F1F1;
+  user-select: none;
+  z-index: 0;
+  opacity: 0.7;
+  white-space: nowrap;
+  pointer-events: none;
+  line-height: 1;
+}
+
+.rf-historia-container {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rf-historia-year-badge {
+  display: inline-block;
+  background-color: #0d3b44;
+  color: #ffffff;
+  padding: 16px 28px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(13, 59, 68, 0.15);
+  border-bottom: 4px solid #D4AF37;
+  margin-bottom: 32px;
+}
+
+.rf-historia-year-number {
+  font-family: 'Sora', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.rf-historia-year-label {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  font-weight: 600;
+}
+
+.rf-historia-subtitle-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.rf-historia-line {
+  width: 48px;
+  height: 2px;
+  background-color: #D4AF37;
+}
+
+.rf-historia-subtitle {
+  font-family: 'Sora', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #D4AF37;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+.rf-historia-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: #0d3b44;
+  margin: 0 0 28px 0;
+}
+
+.rf-historia-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 780px;
+  align-items: center;
+}
+
+.rf-historia-text-lg {
+  font-size: 18px;
+  line-height: 1.65;
+  color: #2f3131;
+  margin: 0;
+}
+
+.rf-historia-quote-box {
+  background-color: #F0F1F1;
+  border-left: 4px solid #D4AF37;
+  border-right: 4px solid #D4AF37;
+  border-radius: 8px;
+  padding: 28px 32px;
+  font-size: 16px;
+  line-height: 1.6;
+  font-style: italic;
+  color: #0d3b44;
+  margin: 8px 0;
+}
+
+.rf-historia-text-md {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #474746;
+  margin: 0;
+}
+
+.rf-historia-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #0d3b44;
+  color: #ffffff;
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  box-shadow: 0 6px 16px rgba(13, 59, 68, 0.2);
+  margin-top: 12px;
+  transition: all 0.3s ease;
+}
+
+.rf-historia-btn:hover {
+  background-color: #D4AF37;
+  color: #0d3b44;
+  transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   SECCIÓN PREGUNTAS FRECUENTES (FAQ)
+   ========================================================================== */
+
+.rf-faq-section {
+  background-color: #f8f9fa;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 80px 24px;
+}
+
+.rf-faq-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rf-faq-item {
+  background-color: #ffffff;
+  border: 1px solid rgba(65, 72, 74, 0.15);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.rf-faq-item[open] {
+  border-color: rgba(13, 59, 68, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.rf-faq-summary {
+  font-family: 'Sora', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1c1b1b;
+  padding: 18px 24px;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+
+.rf-faq-summary::-webkit-details-marker,
+.rf-faq-summary::marker {
+  display: none;
+}
+
+.rf-faq-icon {
+  width: 24px;
+  height: 24px;
+  fill: #0d3b44;
+  transition: transform 0.3s ease;
+}
+
+.rf-faq-item[open] .rf-faq-icon {
+  transform: rotate(180deg);
+}
+
+.rf-faq-content {
+  padding: 0 24px 18px 24px;
+  color: #474746;
+  font-size: 15px;
+  line-height: 1.6;
+  border-top: 1px solid rgba(65, 72, 74, 0.1);
+}
+
+.rf-faq-content p {
+  margin: 12px 0 0 0;
+}
+
+/* ==========================================================================
+   SECCIÓN CONTACTO DIRECTO
+   ========================================================================== */
+
+.rf-contacto-header {
+  margin-bottom: 48px;
+}
+
+.rf-contacto-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background-color: #f1f3f4;
+  border-radius: 50px;
+  font-family: 'Sora', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #0d3b44;
+  margin-bottom: 16px;
+}
+
+.rf-contacto-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  color: #121414;
+  margin: 0 0 12px 0;
+}
+
+.rf-contacto-subtitle {
+  font-size: 16px;
+  color: #5f6368;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.rf-contact-cards-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.rf-direct-card {
+  background-color: #f8f9fa;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+a.rf-direct-card:hover {
+  background-color: #ffffff;
+  border-color: rgba(13, 59, 68, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(13, 59, 68, 0.08);
+}
+
+.rf-direct-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background-color: #0d3b44;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+a.rf-direct-card:hover .rf-direct-icon-box {
+  background-color: #cca030;
+}
+
+.rf-direct-icon-box.schedule-icon {
+  background-color: #e9ecef;
+  color: #0d3b44;
+}
+
+.rf-direct-card-body {
+  flex: 1;
+}
+
+.rf-direct-card-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.rf-direct-tag {
+  font-family: 'Sora', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #cca030;
+}
+
+.rf-direct-arrow {
+  font-size: 18px;
+  color: #5f6368;
+}
+
+.rf-direct-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #121414;
+  margin: 0 0 4px 0;
+}
+
+.rf-direct-desc {
+  font-size: 13px;
+  color: #5f6368;
+  margin: 0;
+}
+
+/* ==========================================================================
+   MODAL / DRAWER DE CARRITO & CHECKOUT
+   ========================================================================== */
+
+.rf-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.rf-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.rf-modal-drawer {
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  box-shadow: -10px 0 30px rgba(0,0,0,0.2);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+.rf-modal-overlay.active .rf-modal-drawer {
+  transform: translateX(0);
+}
+
+.rf-modal-header {
+  padding: 20px 24px;
+  background-color: var(--primary);
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rf-modal-header h3 {
+  font-family: 'Sora', sans-serif;
+  font-size: 18px;
+  margin: 0;
+}
+
+.rf-close-btn {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 28px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.rf-modal-body {
+  padding: 20px 24px;
+  flex-grow: 1;
+}
+
+.rf-cart-item-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.rf-cart-item-img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.rf-cart-item-details {
+  flex: 1;
+}
+
+.rf-cart-item-name {
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.rf-cart-item-price {
+  font-size: 13px;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.rf-cart-qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rf-qty-btn {
+  background: #f1f3f4;
+  border: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.rf-checkout-form-container {
+  padding: 24px;
+  background-color: #f8f9fa;
+  border-top: 1px solid #eeeeee;
+}
+
+.rf-checkout-form-container h4 {
+  font-family: 'Sora', sans-serif;
+  font-size: 16px;
+  margin: 0 0 16px 0;
+  color: var(--primary);
+}
+
+.rf-form-group {
+  margin-bottom: 12px;
+}
+
+.rf-form-group label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  color: #444;
+}
+
+.rf-form-group input,
+.rf-form-group select,
+.rf-form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+}
+
+.rf-form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.rf-modal-footer {
+  margin-top: 16px;
+}
+
+.rf-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Sora', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 16px;
+  gap: 12px;
+}
+
+.rf-total-row span:last-child {
+  color: #0d6b3a;
+}
+
+.rf-submit-wa-btn {
+  width: 100%;
+  background-color: #25D366;
+  color: #ffffff;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 50px;
+  font-family: 'Sora', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 6px 16px rgba(37,211,102,0.3);
+}
+
+.rf-submit-wa-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.rf-submit-wa-btn:hover {
+  background-color: #1eb956;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+.rf-custom-footer {
+  background-color: #ffffff;
+  padding: 48px 48px 32px 48px;
+  border-top: 1px solid #eeeeee;
+}
+
+.rf-footer-top {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1fr;
+  gap: 40px;
+}
+
+.rf-footer-logo {
+  font-family: 'Sora', sans-serif;
+  color: var(--primary);
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0 0 10px 0;
+}
+
+.rf-footer-tagline {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin: 0;
+}
+
+.rf-footer-title {
+  font-family: 'Sora', sans-serif;
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 0 16px 0;
+}
+
+.rf-footer-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rf-footer-menu li {
+  margin-bottom: 8px;
+}
+
+.rf-footer-menu a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.rf-footer-menu a:hover {
+  color: var(--primary);
+}
+
+.rf-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.rf-footer-divider {
+  height: 1px;
+  background-color: #eeeeee;
+  margin: 40px auto 24px auto;
+  max-width: 1200px;
+}
+
+.rf-footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rf-copyright {
+  color: #888888;
+  font-size: 13px;
+  margin: 0;
+}
+
+.rf-accent-pill {
+  width: 42px;
+  height: 4px;
+  background-color: var(--gold);
+  border-radius: 20px;
+}
+
+/* ==========================================================================
+   RESPONSIVO
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .rf-hero {
+    background-image: linear-gradient(180deg, rgba(12, 15, 15, 0.95) 0%, rgba(12, 15, 15, 0.85) 60%, rgba(12, 15, 15, 0.5) 100%), url('hero-bg.webp');
+    background-position: center top;
+  }
+  .rf-hero-container {
+    justify-content: center;
+    text-align: center;
+  }
+  .rf-hero-content {
+    margin: 0 auto;
+  }
+  .rf-eyebrow {
+    justify-content: center;
+  }
+  .rf-hero-buttons {
+    justify-content: center;
+  }
+  .rf-benefits {
+    max-width: 500px;
+    margin: 32px auto 0 auto;
+  }
+  .rf-products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .rf-proceso-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .rf-proceso-grid::before {
+    display: none;
+  }
+  .rf-footer-top {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 640px) {
+  .rf-hero {
+    background-image: linear-gradient(180deg, rgba(12, 15, 15, 0.85) 0%, rgba(12, 15, 15, 0.6) 40%, rgba(12, 15, 15, 0.3) 70%, rgba(12, 15, 15, 0) 100%), url('hero-bg-mobile.webp');
+    background-position: center bottom;
+    min-height: 95vh;
+    padding: 130px 20px 60px 20px;
+  }
+  .rf-hero-content {
+    text-align: center;
+    max-width: 100%;
+  }
+  .rf-eyebrow {
+    justify-content: center;
+  }
+  .rf-hero-buttons {
+    justify-content: center;
+  }
+  .rf-nav-menu {
+    display: none;
+  }
+  .rf-title {
+    font-size: 34px;
+  }
+  .rf-products-grid {
+    grid-template-columns: 1fr;
+  }
+  .rf-proceso-grid {
+    grid-template-columns: 1fr;
+  }
+  .rf-benefits {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
