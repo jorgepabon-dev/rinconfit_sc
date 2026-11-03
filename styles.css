@@ -37,34 +37,11 @@ body {
    HEADER & NAVBAR (TRANSPARENTE AL INICIO, NEGRO AL SCROLLEAR)
    ========================================================================== */
 
-.rf-top-promo {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: linear-gradient(90deg, #f5c400 0%, #f8db6b 100%);
-  color: #0d3b44;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 8px 16px 7px;
-  z-index: 120;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
-  line-height: 1;
-}
-
-.rf-top-promo .material-symbols-outlined {
-  font-size: 18px;
-}
+/* rf-top-promo estilos eliminados */
 
 .rf-header {
   position: fixed;
-  top: 34px;
+  top: 0;
   left: 0;
   width: 100%;
   height: 80px;
@@ -1424,4 +1401,56 @@ a.rf-direct-card:hover .rf-direct-icon-box {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
+}
+
+/* ==========================================================================
+   SELECTOR DE SABORES - NUTREX FOR WOMAN
+   ========================================================================== */
+
+.rf-product-flavor-selector {
+  margin: 10px 0 8px;
+}
+
+.rf-flavor-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.rf-flavor-options {
+  display: flex;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+
+.rf-flavor-btn {
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 2px solid #e0e0e0;
+  background: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  /* Reserva espacio para el peso bold y evita saltos de layout */
+  min-width: 0;
+}
+
+.rf-flavor-btn:hover {
+  border-color: #e05fa0;
+  color: #e05fa0;
+}
+
+.rf-flavor-btn.rf-flavor-active {
+  background: linear-gradient(135deg, #f7a35c, #e05fa0);
+  border-color: transparent;
+  color: #fff;
+  font-weight: 600;
 }

@@ -3,7 +3,6 @@
  */
 
 let cart = [];
-const WEB_DISCOUNT_PERCENT = 0.10;
 
 document.addEventListener('DOMContentLoaded', () => {
   initCartListeners();
@@ -103,6 +102,32 @@ function initCartListeners() {
   }
 }
 
+// Estado del sabor seleccionado para Nutrex for Woman
+let womanSelectedFlavor = 'Peach Mango';
+let womanSelectedImg = 'Bote de creatina Peach Mango para mujeres.png';
+
+function selectFlavorWoman(btn, flavor, imgSrc) {
+  womanSelectedFlavor = flavor;
+  womanSelectedImg = imgSrc;
+
+  // Actualizar imagen del producto
+  const productImg = document.getElementById('nutrex-woman-img');
+  if (productImg) {
+    productImg.src = imgSrc;
+    productImg.alt = `Creatina Nutrex for Woman ${flavor}`;
+  }
+
+  // Actualizar botones de sabor activos
+  const allBtns = btn.closest('.rf-flavor-options').querySelectorAll('.rf-flavor-btn');
+  allBtns.forEach(b => b.classList.remove('rf-flavor-active'));
+  btn.classList.add('rf-flavor-active');
+}
+
+function addToCartWoman() {
+  const productName = `Creatina Nutrex for Woman (${womanSelectedFlavor})`;
+  addToCart(productName, 27.00, womanSelectedImg);
+}
+
 function addToCart(name, price, imgUrl) {
   const existingItem = cart.find(item => item.name === name);
   if (existingItem) {
@@ -136,11 +161,8 @@ function updateQuantity(index, delta) {
 }
 
 function getCartTotals() {
-  const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-  const discount = subtotal * WEB_DISCOUNT_PERCENT;
-  const total = subtotal - discount;
-
-  return { subtotal, discount, total };
+  const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  return { total };
 }
 
 function updateCartUI() {
@@ -232,7 +254,7 @@ function initFormListener() {
     }
 
     const numWhatsapp = '584145122975';
-    const { subtotal, discount, total } = getCartTotals();
+    const { total } = getCartTotals();
 
     let msg = `🛒 *NUEVO PEDIDO DE COMPRA - RINCÓN FIT*\n`;
     msg += `-----------------------------------\n`;
@@ -260,8 +282,6 @@ function initFormListener() {
     });
 
     msg += `-----------------------------------\n`;
-    msg += `💸 *Subtotal:* $${subtotal.toFixed(2)}\n`;
-    msg += `🎉 *Descuento web 10%:* -$${discount.toFixed(2)}\n`;
     msg += `💰 *TOTAL A PAGAR:* $${total.toFixed(2)}\n\n`;
     msg += `¡Hola! Quisiera confirmar los datos para realizar mi pago por *${metodoPago}*.`;
 
